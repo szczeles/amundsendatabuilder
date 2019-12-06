@@ -11,7 +11,7 @@ from databuilder.extractor.cassandra_extractor import CassandraExtractor
 from databuilder.models.table_metadata import TableMetadata, ColumnMetadata
 
 
-# patch whole class to avoid actually calling for boto3.client during tests
+# patch whole class to avoid actually calling for cassandra cluster during tests
 @patch('cassandra.cluster.Cluster.connect', lambda x: None)
 class TestCassandraExtractor(unittest.TestCase):
     def setUp(self):
